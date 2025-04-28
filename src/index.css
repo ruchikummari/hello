@@ -1,5 +1,6 @@
 a.active hr{
     display: block;
+    width: 75%;
 }
 
 @media(max-width:640px){

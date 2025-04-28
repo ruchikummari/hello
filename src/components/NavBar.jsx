@@ -20,19 +20,19 @@ const NavBar = () => {
             
             {/* Desktop Navigation */}
             <ul className="hidden md:flex gap-5 text-sm text-grey-700">
-                <NavLink to='/' className='flex flex-col items-center gap-1 group'>
+                <NavLink to='/' className={({ isActive }) => `flex flex-col items-center gap-1 group ${isActive ? 'active' : ''}`}>
                     <p className="pt-4">HOME</p>
                     <hr className='w-0 group-hover:w-3/4 transition-all duration-300 border-none h-[1.5px] bg-gray-700'/>
                 </NavLink>
-                <NavLink to='/collection' className='flex flex-col items-center gap-1 group'>
+                <NavLink to='/collection' className={({ isActive }) => `flex flex-col items-center gap-1 group ${isActive ? 'active' : ''}`}>
                     <p className="pt-4">COLLECTION</p>
                     <hr className='w-0 group-hover:w-3/4 transition-all duration-300 border-none h-[1.5px] bg-gray-700'/>
                 </NavLink>
-                <NavLink to='/about' className='flex flex-col items-center gap-1 group'>
+                <NavLink to='/about' className={({ isActive }) => `flex flex-col items-center gap-1 group ${isActive ? 'active' : ''}`}>
                     <p className="pt-4">ABOUT</p>
                     <hr className='w-0 group-hover:w-3/4 transition-all duration-300 border-none h-[1.5px] bg-gray-700'/>
                 </NavLink>
-                <NavLink to='/contact' className='flex flex-col items-center gap-1 group'>
+                <NavLink to='/contact' className={({ isActive }) => `flex flex-col items-center gap-1 group ${isActive ? 'active' : ''}`}>
                     <p className="pt-4">CONTACT</p>
                     <hr className='w-0 group-hover:w-3/4 transition-all duration-300 border-none h-[1.5px] bg-gray-700'/>
                 </NavLink>
@@ -67,10 +67,10 @@ const NavBar = () => {
                         <img className="h-4" src={dropdown}/>
                         <p>Back</p>
                     </div>
-                    <NavLink onClick={() => setVisible(false)} className='py-3 px-6 border-b hover:bg-gray-50 transition-colors' to='/'>HOME</NavLink>
-                    <NavLink onClick={() => setVisible(false)} className='py-3 px-6 border-b hover:bg-gray-50 transition-colors' to='/collection'>COLLECTION</NavLink>
-                    <NavLink onClick={() => setVisible(false)} className='py-3 px-6 border-b hover:bg-gray-50 transition-colors' to='/contact'>CONTACT</NavLink>
-                    <NavLink onClick={() => setVisible(false)} className='py-3 px-6 border-b hover:bg-gray-50 transition-colors' to='/about'>ABOUT</NavLink>
+                    <NavLink onClick={() => setVisible(false)} className={({ isActive }) => `py-3 px-6 border-b hover:bg-gray-50 transition-colors ${isActive ? 'active' : ''}`} to='/'>HOME</NavLink>
+                    <NavLink onClick={() => setVisible(false)} className={({ isActive }) => `py-3 px-6 border-b hover:bg-gray-50 transition-colors ${isActive ? 'active' : ''}`} to='/collection'>COLLECTION</NavLink>
+                    <NavLink onClick={() => setVisible(false)} className={({ isActive }) => `py-3 px-6 border-b hover:bg-gray-50 transition-colors ${isActive ? 'active' : ''}`} to='/contact'>CONTACT</NavLink>
+                    <NavLink onClick={() => setVisible(false)} className={({ isActive }) => `py-3 px-6 border-b hover:bg-gray-50 transition-colors ${isActive ? 'active' : ''}`} to='/about'>ABOUT</NavLink>
                 </div>
             </div>
         </div>
