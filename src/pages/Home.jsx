@@ -3,7 +3,7 @@ import Hero from '../components/Hero.jsx'
 import LatestCollection from '../components/LatestCollection.jsx'
 import BestSeller from '../components/BestSeller.jsx'
 import OurPolicy from '../components/OurPolicy.jsx'
-import Footer from '../components/Footer.jsx'
+// import Footer from '../components/Footer.jsx'
 
 
 function Home() {
@@ -13,7 +13,7 @@ function Home() {
       <LatestCollection/>
       <BestSeller/>
       <OurPolicy/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

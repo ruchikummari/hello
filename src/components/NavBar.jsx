@@ -11,7 +11,7 @@ import SearchBar from './SearchBar';
 
 const NavBar = () => {
     const [visible, setVisible] = useState(false);
-    const { setShowSearch, showSearch } = useContext(ShopContext);
+    const { setShowSearch, showSearch, getCartCount } = useContext(ShopContext);
 
     return (
         <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md flex items-center justify-between px-3 md:px-6 lg:px-25 pt-5">
@@ -44,7 +44,7 @@ const NavBar = () => {
             <div className="flex items-center gap-2 md:gap-4">
                 <img onClick={() => setShowSearch(true)} src={search} className="w-4 md:w-4 cursor-pointer hover:opacity-80 transition-opacity"/>
                 <div className="relative group">
-                    <img src={profile} className="py-5 w-4 cursor-pointer hover:opacity-80 transition-opacity"/>
+                    <Link to='/login'><img src={profile} className="py-5 w-4 cursor-pointer hover:opacity-80 transition-opacity"/></Link>
                     <div className="hidden group-hover:block absolute right-0 pt-2 z-50">
                         <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-white shadow-lg text-gray-500 rounded">
                             <p className="cursor-pointer hover:text-black transition-colors">My Profile</p>
@@ -55,7 +55,7 @@ const NavBar = () => {
                 </div>
                 <Link to='/cart' className="relative">
                     <img src={cart} className="w-4 md:w-4 cursor-pointer hover:opacity-80 transition-opacity" />
-                    <p className="absolute right-[-5px] bottom-[-10px] w-4 text-center bg-black text-white aspect-square rounded-full text-[8px]">10</p>
+                    <p className="absolute right-[-5px] bottom-[-10px] w-4 text-center bg-black text-white aspect-square rounded-full text-[8px]">{getCartCount()}</p>
                 </Link>
                 <img onClick={() => setVisible(true)} src={menu} className="w-5 md:w-5 cursor-pointer md:hidden"/>
             </div>

@@ -1,40 +1,7 @@
+// ShopContext.jsx
 import { createContext, useState } from 'react';
 import { products as productsData } from '../data/productsData';
-import img1 from '../assets/img1.avif';
-import img2 from '../assets/img2.avif';
-import img3 from '../assets/img3.jpg';
-import img4 from '../assets/img4.avif';
-import img5 from '../assets/img5.avif';
-import img6 from '../assets/img6.avif';
-import img7 from '../assets/img7.avif';
-import img8 from '../assets/img8.avif';
-import img9 from '../assets/img9.avif';
-import img10 from '../assets/img10.avif';
-import img11 from '../assets/img11.avif';
-import img12 from '../assets/img12.avif';
-import img13 from '../assets/img13.avif';
-import img14 from '../assets/img14.avif';
-import img15 from '../assets/img15.avif';
-import img16 from '../assets/img16.avif';
-import img17 from '../assets/img17.avif';
-import img18 from '../assets/img18.avif';
-import img19 from '../assets/img19.avif';
-import img20 from '../assets/img20.avif';
-import img21 from '../assets/img21.avif';
-import img22 from '../assets/img22.avif';
-import img23 from '../assets/img23.avif';
-import img24 from '../assets/img24.avif';
-import img25 from '../assets/img25.avif';
-import img26 from '../assets/img26.avif';
-import img27 from '../assets/img27.avif';
-import img28 from '../assets/img28.avif';
-import img29 from '../assets/img29.avif';
-import img30 from '../assets/img30.avif';
-import img31 from '../assets/img31.avif';
-import img32 from '../assets/img32.avif';
-import img33 from '../assets/img33.avif';
-import img34 from '../assets/img34.avif';
-import img35 from '../assets/img35.avif';
+// import { useNavigate } from 'react-router-dom';
 
 export const ShopContext = createContext();
 
@@ -43,28 +10,100 @@ const ShopContextProvider = ({ children }) => {
   const delivery_fee = 10;
   const [search, setSearch] = useState('');
   const [showSearch, setShowSearch] = useState(false);
+  const [cartItems, setCartItems] = useState({});
+  // const navigate = useNavigate();
 
-  // Use imported products data
-  const [products] = useState(productsData);
+  const addToCart = async (id, size) => {
+    if (!size) {
+      console.error('Select Product Size');
+      return;
+    }
 
+    const cartData = structuredClone(cartItems);
+
+    if (!cartData[id]) {
+      cartData[id] = {};
+    }
+
+    if (!cartData[id][size]) {
+      cartData[id][size] = 0;
+    }
+
+    cartData[id][size] += 1;
+    setCartItems(cartData);
+  };
+
+  const getCartCount = () => {
+    let totalCount = 0;
+    for (const id in cartItems) {
+      for (const size in cartItems[id]) {
+        const count = cartItems[id][size];
+        if (count > 0) {
+          totalCount += count;
+        }
+      }
+    }
+    return totalCount;
+  };
+
+  const updateQuantity = (id, size, quantity) => {
+    const cartData = structuredClone(cartItems);
+  
+    if (!cartData[id] || !cartData[id][size]) return;
+  
+    if (quantity <= 0) {
+      delete cartData[id][size];
+      if (Object.keys(cartData[id]).length === 0) {
+        delete cartData[id];
+      }
+    } else {
+      cartData[id][size] = quantity;
+    }
+  
+    setCartItems(cartData);
+  };
+
+  const getCartAmount = () => {
+    let totalAmount = 0;
+  
+    for (const id in cartItems) {
+      const itemInfo = productsData.find((product) => product.id.toString() === id.toString());
+      if (!itemInfo) continue;
+  
+      for (const size in cartItems[id]) {
+        const quantity = cartItems[id][size];
+        if (quantity > 0) {
+          totalAmount += itemInfo.price * quantity;
+        }
+      }
+    }
+  
+    return totalAmount;
+  };
+  
+  
+  
   const value = {
-    products, currency, delivery_fee,
-    search, setSearch, showSearch, setShowSearch
+    products: productsData,
+    currency,
+    delivery_fee,
+    search,
+    setSearch,
+    showSearch,
+    setShowSearch,
+    cartItems,
+    addToCart,
+    getCartCount,
+    updateQuantity,
+    getCartAmount
   };
 
   return (
-    <ShopContext.Provider value={{
-      products,
-      search,
-      setSearch,
-      showSearch,
-      setShowSearch,
-      currency,
-      delivery_fee
-    }}>
+    <ShopContext.Provider value={value}>
       {children}
     </ShopContext.Provider>
   );
 };
 
+//  Clean and consistent export
 export default ShopContextProvider;

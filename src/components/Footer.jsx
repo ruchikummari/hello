@@ -2,7 +2,7 @@ import React from 'react'
 function Footer() {
   return (
     <div>
-        <div className='flex flex-small sm:grid grid-cols-4 gap-14 my-10 mt-20 text-sm'>
+        <div className='flex flex-small sm:grid grid-cols-4 gap-14 my-10 mt-20 text-sm pt-30'>
         <div>
         <p className='text-xl font-medium mb-5'>FOREVER</p>
             <p className='w-full md:w-2/3 text-gray-600'></p>

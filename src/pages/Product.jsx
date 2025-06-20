@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
 import RelatedProducts from '../components/RelatedProducts';
+import { toast } from 'sonner';
 
 const Product = () => {
   const { productId } = useParams();
@@ -82,7 +83,14 @@ const Product = () => {
           </div>
 
           <button
-            onClick={() => addToCart(productsData.id, size)}
+            onClick={() => {
+              if (!size) {
+                toast.error("Please select a size before adding to cart!");
+                return;
+              }
+              addToCart(productsData.id, size);
+              toast.success("Item added to cart!");
+            }}
             className="bg-black text-white py-3 px-8 text-sm active:bg-gray-700"
           >
             ADD TO CART

@@ -169,7 +169,7 @@ export const products = [
         image: [img12],
         category:"Infants",
         subCategory:"Sets",
-        sizes:["0-6M","6-12M","1-2Y","2-3Y","3-4Y"],
+        sizes:["XS","S","M","L","XL"],
         bestseller:true,
       },
       {
@@ -191,7 +191,7 @@ export const products = [
         image: [img14],
         category:"Men",
         subCategory:"Shirts",
-        sizes:["0-6M","6-12M","1-2Y","2-3Y","3-4Y"],
+        sizes:["XS","S","M","L","XL"],
         bestseller:true,
       },
       {
@@ -213,7 +213,7 @@ export const products = [
         image: [img16],
         category:"Infants",
         subCategory:"Sets",
-        sizes:["0-6M","6-12M","1-2Y","2-3Y","3-4Y"],
+        sizes:["XS","S","M","L","XL"],
         bestseller:true,
       },
       {
@@ -235,7 +235,7 @@ export const products = [
         image: [img18],
         category:"Infants",
         subCategory:"Sets",
-        sizes:["0-6M","6-12M","1-2Y","2-3Y","3-4Y"],
+        sizes:["XS","S","M","L","XL"],
         bestseller:true,
       },
       {
@@ -268,7 +268,7 @@ export const products = [
         image: [img21],
         category:"Infants",
         subCategory:"Sets",
-        sizes:["0-6M","6-12M","1-2Y","2-3Y","3-4Y"],
+        sizes:["XS","S","M","L","XL"],
         bestseller:true,
       },
       {
@@ -334,7 +334,7 @@ export const products = [
         image: [img27],
         category:"Infants",
         subCategory:"Sets",
-        sizes:["0-6M","6-12M","1-2Y","2-3Y","3-4Y"],
+        sizes:["XS","S","M","L","XL"],
         bestseller:true,
       },
       {
@@ -356,7 +356,7 @@ export const products = [
         image: [img29],
         category:"Infants",
         subCategory:"Sets",
-        sizes:["0-6M","6-12M","1-2Y","2-3Y","3-4Y"],
+        sizes:["XS","S","M","L","XL"],
         bestseller:true,
       },
       {
