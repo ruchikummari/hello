@@ -63,8 +63,9 @@ function Cart() {
                 })
             }
         </div>
+        <hr className='border-t border-gray-200'/>
         <div className='flex justify-end my-20'>
-            <div className='w-full sm:w-[480px]'>
+            <div className='w-1/2 sm:w-[480px]'>
                 <CartTotal/>
                 <div className='w-full text-end'>
                     <button onClick={()=>navigate('/place-order')} className='bg-black text-white px-4 py-3 my-8 text-sm rounded'>PROCEED TO CHECKOUT</button>

@@ -2,7 +2,7 @@ import React from 'react'
 import model from "../assets/model.png"
 function Hero() {
   return (
-    <div className='flex flex-col sm:flex-row border border-gray-400 mx-20 mt-18'>
+    <div className='flex flex-row sm:flex-col border border-gray-400 mx-20 mt-18'>
       <div className='w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0'>
         <div className='text:[#414141]'>
           <div className='flex items-center gap-2'> 
@@ -16,7 +16,7 @@ function Hero() {
           </div>
         </div>
       </div>
-      <img className=' sm:w-1/2 h-[450px] ' src={model}/>
+      <img className=' sm:w-1/2 h-[450px] '  src={model}/>
     </div>
   )
 }

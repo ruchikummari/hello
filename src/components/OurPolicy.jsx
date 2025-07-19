@@ -5,7 +5,7 @@ import support_img from '../assets/support_img.png'
 function OurPolicy() {
   return (
     <div>
-        <div className='flex flex-col sm:flex-row justify-around gap-12 text-center pt-70 pb-20 text-xs sm:text-sm md:text-base text-gray-700 '>
+        <div className='flex flex-row sm:flex-col justify-around gap-12 text-center pt-70 pb-20 text-xs sm:text-sm md:text-base text-gray-700 '>
       <div>
         <img className='w-12 mb-5 m-auto' src={exchange_icon}/>
         <p className='font-semibold'>Easy Exchange Policy</p>

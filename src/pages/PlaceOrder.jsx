@@ -13,9 +13,9 @@ function PlaceOrder() {
     const navigate = useNavigate();
     
   return (
-    <div className='flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80-vh] border-top mx-10'>
+    <div className='flex flex-row sm:flex-col justify-between gap-4 pt-5 sm:pt-14 min-h-[80-vh] border-top mx-10'>
         {/* ----------left half---------- */}
-      <div className='flex flex-col gap-4 w-full sm:max-w-[480px]'>
+      <div className='flex flex-col gap-4 w-1/2 sm:max-w-[480px]'>
 
         <div className='text-xl sm:text-2xl my-3'>
             <Title text1={'DELIVERY'} text2={' INFORMATION'}/>
@@ -43,7 +43,7 @@ function PlaceOrder() {
             </div>
             <div className='mt-12'>
                 <Title text1={'PAYMENT'} text2={' METHOD'}/>
-                <div className='flex flex-col lg:flex-row gap-3'>
+                <div className='flex flex-row lg:flex-col gap-3'>
                 <div onClick={()=>setMethod('stripe')} className='flex items-center border p-2 px-3 cursor-pointer gap-3'>
                     <p className={`min-w-3.5 h-3.5 border rounded-full ${method==='stripe' ? 'bg-green-400' : ''}`}></p>
                     <img className='h-5 mx-4 'src={stripe}/>

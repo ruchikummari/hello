@@ -27,31 +27,45 @@ const Product = () => {
   return (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
       {/* ---------------------- Products Data ----------------------*/}
-      <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
+      <div className="flex gap-12 sm:gap-12 flex-row sm:flex-row">
         {/* ---------------------- products images ---------------------- */}
-        <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row ">
-          {/* ---------------------- List images ----------------------*/}
-          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
-            {productsData.image.map((img, index) => (
-              <img
-                src={img}
-                key={index}
-                alt="thumbnail"
-                className="cursor-pointer w-[24%] sm:w-full sm:mb-3 flex-shrink-0 object-cover"
-                onClick={() => setImage(img)}
-              />
-            ))}
-          </div>
+        <div className="flex-1 flex gap-3">
+  {/* ---------------------- Thumbnails ----------------------*/}
+  <div className="hidden sm:flex flex-col gap-3 w-[18%] overflow-y-auto">
+    {productsData.image.map((img, index) => (
+      <img
+        src={img}
+        key={index}
+        alt="thumbnail"
+        className="cursor-pointer object-cover w-full"
+        onClick={() => setImage(img)}
+      />
+    ))}
+  </div>
 
-          {/*---------------------- main img---------------------- */}
-          <div className="w-full sm:w-[80%] flex justify-center items-center">
-            <img
-              src={image}
-              alt="main"
-              className="w-full max-w-[500px] h-auto object-cover"
-            />
-          </div>
-        </div>
+  {/* For small screens - horizontal thumbnails */}
+  <div className="sm:hidden flex gap-2 overflow-x-auto mb-4">
+    {productsData.image.map((img, index) => (
+      <img
+        src={img}
+        key={index}
+        alt="thumbnail"
+        className="w-20 h-20 object-cover flex-shrink-0 cursor-pointer"
+        onClick={() => setImage(img)}
+      />
+    ))}
+  </div>
+
+  {/* ---------------------- Main Image ----------------------*/}
+  <div className="flex-1 flex justify-center items-center">
+    <img
+      src={image}
+      alt="main"
+      className="w-full max-w-[500px] h-auto object-cover"
+    />
+  </div>
+</div>
+
 
         {/* ---------------------- products details ---------------------- */}
         <div className="flex-1">

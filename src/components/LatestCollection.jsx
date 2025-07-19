@@ -22,7 +22,7 @@ const LatestCollection=()=>{
         <p className='w-3/4 m-atuo text-xs sm:text-sm md-text-base text-gray-600 text-center'></p>
       </div>
 
-      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
+      <div className='grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
         {
           latestProducts.map((item,index)=>(
             <ProductItems key={index} id={item.id} image={item.image} name={item.name} price={item.price}/>

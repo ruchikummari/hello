@@ -74,7 +74,7 @@ useEffect(()=>{
 },[sortType])
 
   return (
-    <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-20'>
+    <div className='flex flex-row sm:flex-row gap-1 sm:gap-10 pt-20'>
       <div className='min-w-60'>
         <p onClick={()=>{setShowFilter(!showFilter)}} className='pt-9 my-2 text-xl flex items-center cursor-pointer gap-2'>Refine by 
         <img className={`h-3 sm:hidden ${showFilter ? 'rotate-90': ''}`} src={dropdown}/></p>
@@ -156,7 +156,7 @@ useEffect(()=>{
         </div>
 
 
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+        <div className='grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
         {
           filterProducts.map((item,index)=>(
             <ProductItems key={index} id={item.id} image={item.image} name={item.name} price={item.price}/>
