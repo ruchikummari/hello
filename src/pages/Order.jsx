@@ -7,7 +7,7 @@ function Order() {
     const {products,currency}=useContext(ShopContext);
 
   return (
-    <div className='border-t pt-16'>
+    <div className='border-t pt-16 px-20'>
       <div className='text-2xl'>
         <Title text1={'MY'} text2={' ORDERS'}/>
       </div>

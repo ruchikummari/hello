@@ -74,14 +74,14 @@ useEffect(()=>{
 },[sortType])
 
   return (
-    <div className='flex flex-row sm:flex-row gap-1 sm:gap-10 pt-20'>
+    <div className='flex flex-row sm:flex-row gap-1 sm:gap-10 pt-20 px-20'>
       <div className='min-w-60'>
         <p onClick={()=>{setShowFilter(!showFilter)}} className='pt-9 my-2 text-xl flex items-center cursor-pointer gap-2'>Refine by 
         <img className={`h-3 sm:hidden ${showFilter ? 'rotate-90': ''}`} src={dropdown}/></p>
 
         
 
-        <div className={`border rounded border-gray-300 pl-5 py-3 mt-6 ${showFilter ? '':'hidden'} sm:block`}>
+        <div className={`border rounded border-gray-300 pl-5 py-3 mt-6  sm:block`}>
           <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='gap-2 flex'>
@@ -104,7 +104,7 @@ useEffect(()=>{
 
 
 
-        <div className={`border rounded border-gray-300 pl-5 py-3 my-5 ${showFilter ? '':'hidden'} sm:block`}>
+        <div className={`border rounded border-gray-300 pl-5 py-3 my-5  sm:block`}>
           <p className='mb-3 text-sm font-medium'>TYPE</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             <p className='gap-2 flex'>

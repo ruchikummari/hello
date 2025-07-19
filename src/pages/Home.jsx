@@ -8,7 +8,7 @@ import OurPolicy from '../components/OurPolicy.jsx'
 
 function Home() {
   return (
-    <div>
+    <div className='px-20'>
       <Hero/>
       <LatestCollection/>
       <BestSeller/>

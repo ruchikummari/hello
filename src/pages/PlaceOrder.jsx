@@ -13,7 +13,7 @@ function PlaceOrder() {
     const navigate = useNavigate();
     
   return (
-    <div className='flex flex-row sm:flex-col justify-between gap-4 pt-5 sm:pt-14 min-h-[80-vh] border-top mx-10'>
+    <div className='px-20 flex flex-row sm:flex-col justify-between gap-4 pt-5 sm:pt-14 min-h-[80-vh] border-top mx-10'>
         {/* ----------left half---------- */}
       <div className='flex flex-col gap-4 w-1/2 sm:max-w-[480px]'>
 

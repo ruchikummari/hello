@@ -35,7 +35,7 @@ function Cart() {
 
 
   return (
-    <div className='border-t border-gray-200 pt-14'>
+    <div className='border-t border-gray-200 pt-14 px-20'>
         <div className='text-2xl mb-3'>
             <Title text1={'YOUR'} text2={' CART'}/>
         </div>

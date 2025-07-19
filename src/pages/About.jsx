@@ -4,7 +4,7 @@ import about from "../assets/about_img.png"
 
 function About() {
   return (
-    <div>
+    <div className='px-20'>
       <div className='text-2xl text-center pt-12'>
         <Title text1={'ABOUT'} text2={' US'}/>
       </div>
