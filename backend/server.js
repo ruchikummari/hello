@@ -8,12 +8,15 @@ import productRouter from './routes/productRoute.js'
 
 //App config
 const app = express()
+app.use('/uploads', express.static('uploads'));
 const port = process.env.PORT || 4000
 connectDB()
 connectCloudinary()
 
 //middlewares
 app.use(express.json())
+app.use('/images', express.static('assets'));
+
 app.use(cors())
 
 //api endpoints

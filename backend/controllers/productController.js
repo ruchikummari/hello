@@ -5,12 +5,13 @@ import productModel from "../models/productModel.js"
 const addProduct = async(req,res)=>{
     try {
         const {name,description,price,category,subCategory,sizes,bestseller}=req.body
-        const image1=req.file.image1 && req.files.image1[0]
-        const image2=req.file.image2 && req.files.image2[0]
-        const image3=req.file.image3 && req.files.image3[0]
-        const image4=req.file.image4 && req.files.image4[0]
+        const img1 = req.files?.img1?.[0];
+        const img2 = req.files?.img2?.[0];
+        const img3 = req.files?.img3?.[0];
+        const img4 = req.files?.img4?.[0];
 
-        const images=[image1,image2,image3,image4].filter((item)=>item!==undefined)
+
+        const images=[img1,img2,img3,img4].filter((item)=>item!==undefined)
         let imagesUrl = await Promise.all(
             images.map(async(item)=>{
                 let result = await cloudinary.uploader.upload(item.path,{resource_type:'image'})
