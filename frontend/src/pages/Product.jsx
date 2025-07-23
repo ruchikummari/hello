@@ -31,7 +31,7 @@ const Product = () => {
         {/* ---------------------- products images ---------------------- */}
         <div className="flex-1 flex gap-3">
   {/* ---------------------- Thumbnails ----------------------*/}
-  <div className="hidden sm:flex flex-col gap-3 w-[18%] overflow-y-auto">
+  {/* <div className="hidden flex flex-wrap gap-3 overflow-y-auto w-[18%]">
     {productsData.image.map((img, index) => (
       <img
         src={img}
@@ -41,10 +41,10 @@ const Product = () => {
         onClick={() => setImage(img)}
       />
     ))}
-  </div>
+  </div> */}
 
   {/* For small screens - horizontal thumbnails */}
-  <div className="sm:hidden flex gap-2 overflow-x-auto mb-4">
+  <div className="sm:hidden flex flex-col gap-2 overflow-x-auto mb-4">
     {productsData.image.map((img, index) => (
       <img
         src={img}

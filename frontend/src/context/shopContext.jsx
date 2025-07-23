@@ -1,6 +1,10 @@
 // ShopContext.jsx
 import { createContext, useState } from 'react';
-import { products as productsData } from '../data/productsData';
+// import { products as productsData } from '../data/productsData';
+import axios from 'axios'
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+
 // import { useNavigate } from 'react-router-dom';
 
 export const ShopContext = createContext();
@@ -8,9 +12,12 @@ export const ShopContext = createContext();
 const ShopContextProvider = ({ children }) => {
   const currency = '$';
   const delivery_fee = 10;
+  const backendUrl= import.meta.env.VITE_BACKEND_URL;
+  console.log("backendUrl is:", backendUrl);
   const [search, setSearch] = useState('');
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
+  const[products,setProducts]=useState([])
   // const navigate = useNavigate();
 
   const addToCart = async (id, size) => {
@@ -67,7 +74,7 @@ const ShopContextProvider = ({ children }) => {
     let totalAmount = 0;
   
     for (const id in cartItems) {
-      const itemInfo = productsData.find((product) => product.id.toString() === id.toString());
+      const itemInfo = products.find((product) => product.id.toString() === id.toString());
       if (!itemInfo) continue;
   
       for (const size in cartItems[id]) {
@@ -81,10 +88,26 @@ const ShopContextProvider = ({ children }) => {
     return totalAmount;
   };
   
-  
+  const getProductsData=async()=>{
+    try {
+      const response=await axios.post(`${backendUrl}/api/product/list`)
+      if(response.data.success){
+        setProducts(response.data.products)
+      }else{
+        toast.error(response.data.message)
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error(error.message)
+    }
+  }
+
+  useEffect(()=>{
+    getProductsData()
+  },[])
   
   const value = {
-    products: productsData,
+    products: products,
     currency,
     delivery_fee,
     search,
@@ -95,7 +118,7 @@ const ShopContextProvider = ({ children }) => {
     addToCart,
     getCartCount,
     updateQuantity,
-    getCartAmount
+    getCartAmount,backendUrl
   };
 
   return (

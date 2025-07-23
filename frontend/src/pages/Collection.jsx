@@ -114,25 +114,10 @@ useEffect(()=>{
               <input className='w-3' type='checkbox' value={'Dresses'} onChange={toggleSubCategory}/>Dresses
             </p>
             <p className='gap-2 flex'>
-              <input className='w-3' type='checkbox' value={'Kurtas'} onChange={toggleSubCategory}/>Kurtas
+              <input className='w-3' type='checkbox' value={'Ethnicwear'} onChange={toggleSubCategory}/>Ethnicwear
             </p>
             <p className='gap-2 flex'>
-              <input className='w-3' type='checkbox' value={'Kurta Sets'} onChange={toggleSubCategory}/>Kurta Sets
-            </p>
-            <p className='gap-2 flex'>
-              <input className='w-3' type='checkbox' value={'Tops'} onChange={toggleSubCategory}/>Tops
-            </p>
-            <p className='gap-2 flex'>
-              <input className='w-3' type='checkbox' value={'Tshirts'} onChange={toggleSubCategory}/>Tshirts
-            </p>
-            <p className='gap-2 flex'>
-              <input className='w-3' type='checkbox' value={'Sarees'} onChange={toggleSubCategory}/>Sarees
-            </p>
-            <p className='gap-2 flex'>
-              <input className='w-3' type='checkbox' value={'Winterwear'} onChange={toggleSubCategory}/>Winterwear
-            </p>
-            <p className='gap-2 flex'>
-              <input className='w-3' type='checkbox' value={'Shirts'} onChange={toggleSubCategory}/>Shirts
+              <input className='w-3' type='checkbox' value={'Topwear'} onChange={toggleSubCategory}/>Topwear
             </p>
             <p className='gap-2 flex'>
               <input className='w-3' type='checkbox' value={'Sets'} onChange={toggleSubCategory}/>Sets
@@ -159,7 +144,7 @@ useEffect(()=>{
         <div className='grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
         {
           filterProducts.map((item,index)=>(
-            <ProductItems key={index} id={item.id} image={item.image} name={item.name} price={item.price}/>
+            <ProductItems key={index} id={item.id} image={item.image  || item.image1 || item.img1} name={item.name} price={item.price}/>
           ))
         }
         </div>
